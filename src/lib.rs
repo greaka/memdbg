@@ -7,9 +7,9 @@
 //!
 //! ## Example
 //!
-//! ```rs
-//!     let buf = memdbg::Buf(*b"\x41 \x68 \x90 \x00 \x2f This is a test string, The Line Break will demonstrate multiline formatting!");
-//!     dbg!("{buf:?}");
+//! ```rust
+//! let buf = memdbg::Buf(*b"\x41 \x68 \x90 \x00 \x2f This is a test string, The Line Break will demonstrate multiline formatting!");
+//! dbg!("{buf:?}");
 //! ```
 //! will display
 //! ```text
