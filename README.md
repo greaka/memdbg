@@ -1,9 +1,9 @@
 # Memdbg
 
-Memdbg provides the [`Buf`] struct which implements Debug
+Memdbg provides the `Buf` struct which implements Debug
 to provide a peak into memory akin to hex readers.
 
-The [`buf_dbg`] macro extends this view to any struct.
+The `buf_dbg` macro extends this view to any struct.
 
 ## Example
 
