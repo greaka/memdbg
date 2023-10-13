@@ -60,7 +60,7 @@ impl<const N: usize> Debug for Buf<N> {
                 f.write_str(" ")?;
             }
 
-            f.write_str(" |")?;
+            f.write_str(" | ")?;
 
             write_ascii(f, line)?;
         }
@@ -72,9 +72,9 @@ impl<const N: usize> Debug for Buf<N> {
 fn write_ascii(f: &mut Formatter, buf: &[u8]) -> core::fmt::Result {
     for &char in buf {
         if char.is_ascii_graphic() {
-            f.write_fmt(format_args!(" {}", char as char))?;
+            f.write_fmt(format_args!("{}", char as char))?;
         } else {
-            f.write_str(" .")?;
+            f.write_str(".")?;
         }
     }
 
