@@ -13,9 +13,9 @@
 //! ```
 //! will display
 //! ```text
-//! | 41 20 68 20 90 20 00 20 | 2F 20 54 68 69 73 20 69 | 73 20 61 20 74 65 73 74 | 20 73 74 72 69 6E 67 2C | A . h . . . . . / . T h i s . i s . a . t e s t . s t r i n g ,
-//! | 20 54 68 65 20 4C 69 6E | 65 20 42 72 65 61 6B 20 | 77 69 6C 6C 20 64 65 6D | 6F 6E 73 74 72 61 74 65 | . T h e . L i n e . B r e a k . w i l l . d e m o n s t r a t e
-//! | 20 6D 75 6C 74 69 6C 69 | 6E 65 20 66 6F 72 6D 61 | 74 74 69 6E 67 21                                 | . m u l t i l i n e . f o r m a t t i n g !
+//! | 41 20 68 20 90 20 00 20 | 2F 20 54 68 69 73 20 69 | 73 20 61 20 74 65 73 74 | 20 73 74 72 69 6E 67 2C | A.h...../.This.is.a.test.string,
+//! | 20 54 68 65 20 4C 69 6E | 65 20 42 72 65 61 6B 20 | 77 69 6C 6C 20 64 65 6D | 6F 6E 73 74 72 61 74 65 | .The.Line.Break.will.demonstrate
+//! | 20 6D 75 6C 74 69 6C 69 | 6E 65 20 66 6F 72 6D 61 | 74 74 69 6E 67 21                                 | .multiline.formatting!
 //! ```
 
 #![no_std]
@@ -110,7 +110,7 @@ pub fn dbg_impl<T, const N: usize>(
 #[macro_export]
 #[cfg(any(feature = "debug", feature = "stringify"))]
 macro_rules! buf_dbg {
-    ($name:ident) => {
+    ($name:ty) => {
         impl ::core::fmt::Debug for $name {
             fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
                 ::memdbg::dbg_impl::<Self, { core::mem::size_of::<Self>() }>(
@@ -127,5 +127,5 @@ macro_rules! buf_dbg {
 #[macro_export]
 #[cfg(not(any(feature = "debug", feature = "stringify")))]
 macro_rules! buf_dbg {
-    ($name:ident) => {};
+    ($name:ty) => {};
 }
